@@ -54,6 +54,6 @@ VUE_APP_BASE_API代理到后端的/
 
 ## License
 
-[MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
+[MIT](https://magicdawn.mit-license.org/)
 
 Copyright (c) 2020-present XiaFan
