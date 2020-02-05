@@ -39,7 +39,7 @@ docker-compose -f docker-compose.yml up --build
 
 ## 其它
 
-```python
+```
 # URL规范
 VUE_APP_BASE_API代理到后端的/
 
