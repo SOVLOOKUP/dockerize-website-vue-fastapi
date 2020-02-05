@@ -1,0 +1,69 @@
+version: '3.1'
+
+services:
+
+  nginx:
+    container_name: webserver
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - 80:80
+    restart: always
+    depends_on:
+      - api
+      # - frontend
+    environment:
+    # #是开发环境还是发布环境
+    - NODE_ENV=development
+    # #部署时的主机域名指定API
+    - VUE_APP_BASE_API=http://localhost/api/
+    
+  # frontend:
+  #   container_name: frontend
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./frontend
+  #   depends_on:
+  #    - api
+  #   ports:
+  #   - 8080:8080
+  #   restart: always
+  #   environment:
+  #   # #是开发环境还是发布环境
+  #   - NODE_ENV=development
+  #   # #部署时的主机域名指定API
+  #   - VUE_APP_BASE_API=http://localhost/api/
+
+  api:
+    container_name: backend
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+    # #ports用来查看接口文档，生产环境请注释
+    ports:
+      - 5000:80
+      
+    restart: always
+    depends_on:
+      - mongo
+
+
+
+  mongo:
+    container_name: database
+    image: mongo
+    restart: always
+    ##生产环境时注释掉
+    ports:
+      - 27017:27017
+    environment:
+      ##这里设置数据库用户名密码
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: Trololo124!
+    volumes:
+      - mongodb:/data/db
+
+
+volumes:
+  mongodb: {}
