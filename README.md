@@ -54,6 +54,6 @@ VUE_APP_BASE_API代理到后端的/
 
 ## License
 
-[MIT](https://magicdawn.mit-license.org/)
+[MIT](https://gitee.com/DataDrop/dockerize-website-vue-fastapi/blob/master/LICENSE)
 
-Copyright (c) 2020-present XiaFan
+Copyright (c) 2020 于北
